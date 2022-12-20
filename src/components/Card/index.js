@@ -2,7 +2,8 @@ import { View, Text } from 'react-native';
 import { styles } from './style';
 
 
-export default function Card() {
+export default function Card({book}) {
+    console.log(book)
     return(
         <View style={styles.container}>
             <View style={styles.image}>

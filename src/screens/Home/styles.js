@@ -13,7 +13,8 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 24,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        borderRadius: 12
     }, 
     title: {
         fontSize: 22,
@@ -48,6 +49,19 @@ export const styles = StyleSheet.create({
        flex: 1,
         flexDirection: 'row',
         
+    },
+    section2: {
+        flexDirection: 'row',
+        
+    },
+    searchButtonWrapper: {
+        marginLeft: 10,
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        backgroundColor: '#1d3557',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
     
 })

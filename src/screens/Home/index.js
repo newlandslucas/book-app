@@ -8,13 +8,8 @@ import Card from '../../components/Card';
 
 
 const itemData = [
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />,
-    <Card />,
+    <Card />
+    
 ]
 
 const API_KEY = "AIzaSyBYWBxXu0P7eETdZTnRcnZYnt0VeoJeulM"
@@ -24,15 +19,20 @@ const KEY_HEADER = "&key" + API_KEY
 
 export default function Home() {
     const [search, setSearch] = useState("")
+    const [bookData, setBookData] = useState([])
     console.log(search)
 
-    const searchBook = (evt) => {
-        if (evt.key === "return") {
+    function searchBook() {
             axios.get(GOOGLE_BOOKS_URL + GET_BOOKS_BY_NAME_ENDPOINT + search + KEY_HEADER)
-            .then(res=>console.log(res))
+            .then(res=>setBookData(res.data.items))
             .catch(err=>console.log(err))
-        }
+            
     }
+
+    function handleSearchBook() {
+        searchBook(search)
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.Header}>
@@ -43,17 +43,27 @@ export default function Home() {
             </View>
 
             <View style={styles.section1}>
+                <View style={styles.section2}>
                 <TextInput 
                         value={search}
-                        onChange={e => setSearch(e.target.value)}
+                        onChangeText={search => setSearch(search)}
                         style={styles.input}
                         onKeyPress={searchBook}
                         placeHolder="Enter Your Book Name"
-                        placeholderTextColor="#6B6B6B"
+                        placeholderTextColor="#1d3557"
                         
                     />
-                <Text style={styles.title2}>Find Your Book</Text>
+
+                    <TouchableOpacity onPress={handleSearchBook()}>
+                        <View style={styles.searchButtonWrapper}>
+                            <Ionicons name="search" size={24} color="white" />
+                        </View>
+                    </TouchableOpacity>
+                    
+                </View>
             </View>
+
+            <Text>{search}</Text>
 
             <FlatList
                 numColumns={2} 
@@ -62,6 +72,7 @@ export default function Home() {
                 renderItem={ ({ item } ) => (<Card card={item}/>)}
              
              />
+             <Card book={bookData}/>
             
            
            
