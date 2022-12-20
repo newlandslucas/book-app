@@ -2,29 +2,37 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        width: 170,
-        height: 200,
+        width: 200,
+        height: 300,
         radius: 5,
-        backgroundColor: '#666',
-        margin: 10
+        backgroundColor: '#FFF',
+        margin: 10,
+        shadowColor: '#000',
+        shadowOffset: {width: -2, height: 4},
+        shadowOpacity: 0.2,
+        shadowRadius: 3
     },
     bottom: {
         color: '#fff',
         padding: 10,
-        marginTop: 15
+        marginTop: 40
     },
     title: {
         fontSize: 14,
-        color: '#FFF',
+        color: '#000',
         fontWeight: 'bold'
     },
     price: {
         fontSize: 12,
-        color: '#FFF',    
+        color: '#000',    
     },
     image: {
-        backgroundColor: '#DCDCDC',
         width: '100%',
-        height: 120,
+        height: 170,
+        marginTop: 10
+    },
+    image1: {
+        width: 200,
+        height: 200
     }
 })

@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center'
     },
     Header: {
-        backgroundColor: '#1d3557',
+        backgroundColor: '#006699',
         width: '100%',
         height: 150,
         justifyContent: 'space-between',
@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 25,
-        backgroundColor: '#1d3557',
+        backgroundColor: '#00acee',
         justifyContent: 'center',
         alignItems: 'center'
     }

@@ -1,19 +1,35 @@
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { styles } from './style';
 
 
-export default function Card({book}) {
-    console.log(book)
-    return(
-        <View style={styles.container}>
-            <View style={styles.image}>
+export default function Card({ book }) {
+    console.log('livros listados: ', book)
+    return (
+        <>
+            {
+                book.map((item) => {
+                    let thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail
+                    let amount = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
 
-            </View>
-            <View style={styles.bottom}>
-                <Text style={styles.title}>React Js</Text>
-                <Text style={styles.price}>R$199,90</Text>
-            </View>
-            
-        </View>
+                    if (amount != undefined) {
+                        return (
+                            <View style={styles.container}>
+                                <View style={styles.image}>
+                                    <Image source={{uri: thumbnail}} style={styles.image1} resizeMode="contain"/>
+                                </View>
+                                <View style={styles.bottom}>
+                                    <Text style={styles.title}>{item.volumeInfo.title}</Text>
+                                    <Text style={styles.price}>R$ {amount}</Text>
+                                </View>
+    
+                            </View>
+                        )
+                    }
+                   
+                })
+            }
+
+        </>
+
     )
 }
