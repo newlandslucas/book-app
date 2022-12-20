@@ -1,9 +1,12 @@
-import { View, Text, Image } from 'react-native';
+import { useState } from 'react';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import Modal from '../Modal';
 import { styles } from './style';
 
 
 export default function Card({ book }) {
-    console.log('livros listados: ', book)
+   const [show, setShow] = useState(false)
+   const [bookItem, setItem] = useState()
     return (
         <>
             {
@@ -13,7 +16,8 @@ export default function Card({ book }) {
 
                     if (amount != undefined) {
                         return (
-                            <View style={styles.container}>
+                            <>
+                            <TouchableOpacity style={styles.container} onPress={() => {setShow(true), setItem(item)}}>
                                 <View style={styles.image}>
                                     <Image source={{uri: thumbnail}} style={styles.image1} resizeMode="contain"/>
                                 </View>
@@ -21,14 +25,17 @@ export default function Card({ book }) {
                                     <Text style={styles.title}>{item.volumeInfo.title}</Text>
                                     <Text style={styles.price}>R$ {amount}</Text>
                                 </View>
-    
-                            </View>
+
+                            </TouchableOpacity>
+                            <Modal show={show} item={bookItem}/>
+                            </>
                         )
+                        
                     }
-                   
                 })
             }
-
+            
+           
         </>
 
     )
