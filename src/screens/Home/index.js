@@ -1,16 +1,13 @@
 import { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput, FlatList, ScrollView } from 'react-native';
-import { Entypo, Ionicons } from '@expo/vector-icons'
+import { Entypo, EvilIcons } from '@expo/vector-icons'
 import { styles } from './styles';
 import axios from 'axios';
 
 import Card from '../../components/Card';
+import SeparatorItem from '../../components/SeparatorItem';
 
 
-// const itemData = [
-//     <Card />
-    
-// ]
 
 const API_KEY = "AIzaSyBYWBxXu0P7eETdZTnRcnZYnt0VeoJeulM"
 const GOOGLE_BOOKS_URL = "https://www.googleapis.com/books"
@@ -21,18 +18,18 @@ const maxResults = "&maxResults=40"
 export default function Home() {
     const [search, setSearch] = useState("")
     const [bookData, setBookData] = useState([])
-    console.log('book data:', bookData)
 
     function searchBook() {
-        if(search) {
+        if (search) {
             axios.get(GOOGLE_BOOKS_URL + GET_BOOKS_BY_NAME_ENDPOINT + search + KEY_HEADER + maxResults)
-            .then(res=>setBookData(res.data.items))
-            .catch(err=>console.log(err))
+                .then(res => setBookData(res.data.items))
+                .catch(err => console.log(err))
         }
     }
 
-    function handleSearchBook() {
-        searchBook(search)
+
+    function renderItem({ item }) {
+       return <Card book={bookData} />
     }
 
     return (
@@ -46,30 +43,30 @@ export default function Home() {
 
             <View style={styles.section1}>
                 <View style={styles.section2}>
-                <TextInput 
+                    <TextInput
                         value={search}
                         onChangeText={search => setSearch(search)}
                         style={styles.input}
                         onKeyPress={searchBook}
                         placeHolder="Enter Your Book Name"
                         placeholderTextColor="#1d3557"
-                        
+
                     />
-                    
+                   
+
+                   <EvilIcons name="search" size={26} color="black" style={{marginRight: 10}} />
+                </View>
+                <View style={styles.categoryName}>
+                    <Text style={styles.findText}>All Books</Text>
                 </View>
             </View>
 
-            {/* <FlatList
-                numColumns={2} 
-                data={bookData}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={ ({ item } ) => (<Card card={item}/>)}
-             
-             /> */}
-
-             <ScrollView>
-                <Card book={bookData}/>
+             <ScrollView horizontal="true" showsHorizontalScrollIndicator="false" s>
+                <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
+                    <Card book={bookData}/>
+                </View>
              </ScrollView>
         </View>
+        
     )
 }

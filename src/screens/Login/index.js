@@ -1,7 +1,16 @@
-import { View, Text, SafeAreaView, Touchable, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
+import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';
 import { styles } from './style';
 
+function handleLogin(login) {
+    login == true
+    console.log("Login True")
+}
+
 export default function Login() {
+    const [login, setLogin] = useState(false)
+
+   
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.section}>
@@ -14,7 +23,7 @@ export default function Login() {
                     <Text>LOGIN</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.registerWrapper}>
+                <TouchableOpacity style={styles.registerWrapper} onPress={(login) => setLogin(true)}>
                     <Text style={styles.registerText}>Ainda não tem cadastro?</Text>
                     <Text style={styles.registerText}>Clique aqui!</Text>
                 </TouchableOpacity>

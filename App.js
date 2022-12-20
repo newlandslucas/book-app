@@ -5,8 +5,8 @@ import Login from './src/screens/Login';
 export default function App() {
   return (
     <>
-      {/* <Home /> */}
-      <Login />
+      <Home />
+      {/* <Login /> */}
       <StatusBar style="light" />
     </>
   );

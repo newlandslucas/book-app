@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FCFCFC',
+        backgroundColor: '#FFF',
         alignItems: 'center'
     },
     Header: {
@@ -14,7 +14,8 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 24,
         flexDirection: 'row',
-        borderRadius: 12
+        borderRadius: 10,
+        
     }, 
     title: {
         fontSize: 22,
@@ -37,13 +38,18 @@ export const styles = StyleSheet.create({
         width: 250,
         height: 50,
         backgroundColor: '#DCDCDC',
-        borderRadius: 15,
+        borderRadius: 25,
         color: '#000',
         padding: 16,
         fontSize: 18,
         marginBottom: 10,
-        radius: 15
+        
 
+    },
+    findText: {
+        marginTop: 15,
+        fontSize: 20,
+        fontWeight: 'bold'
     },
     FlatList: {
        flex: 1,
@@ -51,8 +57,11 @@ export const styles = StyleSheet.create({
         
     },
     section2: {
+        alignItems: 'center',
         flexDirection: 'row',
-        
+        backgroundColor: '#DCDCDC',
+        borderRadius: 25,
+        marginBottom: 20
     },
     searchButtonWrapper: {
         marginLeft: 10,
@@ -62,6 +71,13 @@ export const styles = StyleSheet.create({
         backgroundColor: '#00acee',
         justifyContent: 'center',
         alignItems: 'center'
+    },
+
+    categoryName: {
+        width: 100,
+        marginRight: 250,
+        marginBottom: 20
+
     }
     
 })
