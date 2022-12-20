@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FCFCFC'
+        backgroundColor: '#FCFCFC',
+        alignItems: 'center'
     },
     Header: {
         backgroundColor: '#1d3557',
@@ -18,5 +19,35 @@ export const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         color: '#FFF'
+    },
+    section1: {
+        marginTop: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
+        radius: 15
+    },
+    title2: {
+        fontSize: '14',
+        fontWeight: 'bold',
+        color: '#6B6B6B'
+
+    },
+    input: {
+        width: 250,
+        height: 50,
+        backgroundColor: '#DCDCDC',
+        borderRadius: 15,
+        color: '#000',
+        padding: 16,
+        fontSize: 18,
+        marginBottom: 10,
+        radius: 15
+
+    },
+    FlatList: {
+       flex: 1,
+        flexDirection: 'row',
+        
     }
+    
 })
