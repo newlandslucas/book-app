@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, ScrollView, Pressable } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, ScrollView, Image } from 'react-native';
 import { EvilIcons, Ionicons } from '@expo/vector-icons'
 import { styles } from './styles';
 import axios from 'axios';
@@ -24,10 +24,6 @@ export default function Home({ navigation }) {
         }
     }
 
-    function GoBack() {
-        navigation.navigate('login')
-    }
-
     function GoNextScreen() {
         navigation.navigate('modalTest')
     }
@@ -39,8 +35,8 @@ export default function Home({ navigation }) {
             <View style={styles.Header}>
                 <Text style={styles.title}>IBM Books</Text>
 
-                <TouchableOpacity onPress={GoBack}>
-                    <Ionicons name="exit-outline" size={30} color="white" style={{ marginTop: 35 }} />
+                <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                    <Image source={require('../../assets/profileImage.png')} style={{height: 50, width: 50, borderRadius: 40, marginTop: 35}}/>
                 </TouchableOpacity>
             </View>
 
