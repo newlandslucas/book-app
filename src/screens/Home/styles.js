@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center'
     },
     Header: {
-        backgroundColor: '#FFF',
+        backgroundColor: '#121214',
         width: '100%',
         height: 150,
         justifyContent: 'space-between',
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     title: {
         fontSize: 25,
         fontWeight: 'bold',
-        color: '#000',
+        color: '#FFF',
         marginTop: 35
     },
     section1: {
@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
     },
     input: {
         width: 250,
-        height: 45,
+        height: 60,
         backgroundColor: '#DCDCDC',
         borderRadius: 30,
         color: '#000',

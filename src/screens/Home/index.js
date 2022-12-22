@@ -40,7 +40,7 @@ export default function Home({ navigation }) {
                 <Text style={styles.title}>IBM Books</Text>
 
                 <TouchableOpacity onPress={GoBack}>
-                    <Ionicons name="exit-outline" size={30} color="black" style={{ marginTop: 35 }} />
+                    <Ionicons name="exit-outline" size={30} color="white" style={{ marginTop: 35 }} />
                 </TouchableOpacity>
             </View>
 
