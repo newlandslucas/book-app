@@ -17,7 +17,7 @@ export default function ModalTest({ navigation }) {
                 <View style={styles.info}>
                     <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
                         <Text style={styles.title}>Python Crash Course</Text>
-                        <TouchableOpacity onPress={GoBack}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                             <AntDesign name="close" size={26} color="black" style={{marginRight: 15}}/>
                         </TouchableOpacity>
                     </View>

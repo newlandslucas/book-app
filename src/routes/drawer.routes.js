@@ -6,27 +6,36 @@ import ModalTest from '../screens/ModalTest';
 import Favorite from '../screens/Favorite';
 import CustomDrawer from '../components/customDrawer';
 import Login from '../screens/Login';
+import { StackRoutes } from './stack.routes';
 
 const { Screen, Navigator } = createDrawerNavigator();
 
 export function DrawerRoutes() {
     return (
-        <Navigator 
-        drawerContent={props => <CustomDrawer {...props} />}
-        screenOptions={{
-            headerShown: false,
-            drawerActiveTintColor: '#FFF',
-            drawerInactiveTintColor: '#333',
-            drawerActiveBackgroundColor: '#000',
-            drawerLabelStyle: {marginLeft: -15, fontSize: 16}
-        }}
+        <Navigator
+            drawerContent={props => <CustomDrawer {...props} />}
+            screenOptions={{
+                headerShown: false,
+                drawerActiveTintColor: '#FFF',
+                drawerInactiveTintColor: '#333',
+                drawerActiveBackgroundColor: '#000',
+                drawerLabelStyle: { marginLeft: -15, fontSize: 16 }
+            }}
         >
-
+            <Screen
+                name="Exit"
+                component={Login}
+                options={{
+                    drawerIcon: ({ color }) => (
+                        <Ionicons name="ios-exit-outline" size={18} color={color} />
+                    )
+                }}
+            />
             <Screen
                 name='Home'
                 component={Home}
                 options={{
-                    drawerIcon: ({color}) => (
+                    drawerIcon: ({ color }) => (
                         <Entypo name="home" size={18} color={color} />
                     )
                 }}
@@ -37,7 +46,7 @@ export function DrawerRoutes() {
                 name='Detail'
                 component={ModalTest}
                 options={{
-                    drawerIcon: ({color}) => (
+                    drawerIcon: ({ color }) => (
                         <Entypo name="book" size={18} color={color} />
                     )
                 }}
@@ -47,20 +56,13 @@ export function DrawerRoutes() {
                 name='Favorite'
                 component={Favorite}
                 options={{
-                    drawerIcon: ({color}) => (
+                    drawerIcon: ({ color }) => (
                         <Fontisto name="favorite" size={18} color={color} />
                     )
                 }}
             />
-            <Screen 
-                name="Exit"
-                component={Login}
-                options={{
-                    drawerIcon: ({color}) => (
-                        <Ionicons name="ios-exit-outline" size={18} color={color}/>
-                        )
-                }}
-            />
+
+
         </Navigator>
     )
 

@@ -5,7 +5,7 @@ import { styles } from './style';
 export default function Login({ navigation }) {
    
     function GoHomeScreen(){
-        navigation.navigate('home')
+        navigation.navigate('Home')
     }
 
     return(
