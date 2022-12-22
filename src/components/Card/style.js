@@ -3,14 +3,14 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         width: 180,
-        height: 330,
-        radius: 5,
+        height: 315,
+        borderRadius: 5,
         backgroundColor: '#FFF',
         margin: 10,
         shadowColor: '#000',
         shadowOffset: {width: -2, height: 4},
         shadowOpacity: 0.2,
-        shadowRadius: 3
+        shadowRadius: 5
     },
     bottom: {
         color: '#fff',
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
         marginTop: 5    
     },
     image: {
-        width: '100%',
+        width: 160,
         height: 170,
         marginTop: 10
     },

@@ -1,12 +1,12 @@
-import { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import Modal from '../Modal';
 import { styles } from './style';
 
 
-export default function Card({ book }) {
-   const [show, setShow] = useState(false)
-   const [bookItem, setItem] = useState()
+export default function Card({ book, navigation }) {
+
+    function GoModal(){
+        navigation.navigator('modalTest')
+    }
     return (
         <>
             {
@@ -17,7 +17,7 @@ export default function Card({ book }) {
                     if (amount != undefined) {
                         return (
                             <>
-                            <TouchableOpacity style={styles.container} onPress={() => {setShow(true), setItem(item)}}>
+                            <TouchableOpacity style={styles.container}>
                                 <View style={styles.image}>
                                     <Image source={{uri: thumbnail}} style={styles.image1} resizeMode="contain"/>
                                 </View>
@@ -27,7 +27,6 @@ export default function Card({ book }) {
                                 </View>
 
                             </TouchableOpacity>
-                            <Modal show={show} item={bookItem}/>
                             </>
                         )
                         

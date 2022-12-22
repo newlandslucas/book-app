@@ -1,16 +1,13 @@
-import { useState } from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, Button, Pressable } from 'react-native';
 import { styles } from './style';
 
-function handleLogin(login) {
-    login == true
-    console.log("Login True")
-}
 
-export default function Login() {
-    const [login, setLogin] = useState(false)
-
+export default function Login({ navigation }) {
    
+    function GoHomeScreen(){
+        navigation.navigate('home')
+    }
+
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.section}>
@@ -19,11 +16,12 @@ export default function Login() {
             </View>
             
             <View style={styles.loginButtonWrapper}>
-                <TouchableOpacity style={styles.loginButton}>
-                    <Text>LOGIN</Text>
-                </TouchableOpacity>
+                <Pressable style={styles.Button} onPress={GoHomeScreen}>
 
-                <TouchableOpacity style={styles.registerWrapper} onPress={(login) => setLogin(true)}>
+                    <Text>Login with W3</Text>
+                </Pressable>
+
+                <TouchableOpacity style={styles.registerWrapper} onPress={GoHomeScreen}>
                     <Text style={styles.registerText}>Ainda não tem cadastro?</Text>
                     <Text style={styles.registerText}>Clique aqui!</Text>
                 </TouchableOpacity>

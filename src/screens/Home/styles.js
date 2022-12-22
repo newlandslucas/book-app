@@ -7,20 +7,24 @@ export const styles = StyleSheet.create({
         alignItems: 'center'
     },
     Header: {
-        backgroundColor: '#006699',
+        backgroundColor: '#FFF',
         width: '100%',
         height: 150,
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 24,
+        borderRadius: 24,
         flexDirection: 'row',
-        borderRadius: 10,
-        
+        shadowColor: '#000',
+        shadowOffset: {width: -2, height: 4},
+        shadowOpacity: 0.5,
+        shadowRadius: 5, 
     }, 
     title: {
-        fontSize: 22,
+        fontSize: 25,
         fontWeight: 'bold',
-        color: '#FFF'
+        color: '#000',
+        marginTop: 35
     },
     section1: {
         marginTop: 25,
@@ -36,9 +40,9 @@ export const styles = StyleSheet.create({
     },
     input: {
         width: 250,
-        height: 50,
+        height: 45,
         backgroundColor: '#DCDCDC',
-        borderRadius: 25,
+        borderRadius: 30,
         color: '#000',
         padding: 16,
         fontSize: 18,
@@ -60,7 +64,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         backgroundColor: '#DCDCDC',
-        borderRadius: 25,
+        borderRadius: 30,
         marginBottom: 20
     },
     searchButtonWrapper: {

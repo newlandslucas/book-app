@@ -1,13 +1,10 @@
 import { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, FlatList, ScrollView } from 'react-native';
-import { Entypo, EvilIcons } from '@expo/vector-icons'
+import { View, Text, TouchableOpacity, TextInput, ScrollView, Pressable } from 'react-native';
+import { EvilIcons, Ionicons } from '@expo/vector-icons'
 import { styles } from './styles';
 import axios from 'axios';
 
 import Card from '../../components/Card';
-import SeparatorItem from '../../components/SeparatorItem';
-
-
 
 const API_KEY = "AIzaSyBYWBxXu0P7eETdZTnRcnZYnt0VeoJeulM"
 const GOOGLE_BOOKS_URL = "https://www.googleapis.com/books"
@@ -15,7 +12,7 @@ const GET_BOOKS_BY_NAME_ENDPOINT = "/v1/volumes?q="
 const KEY_HEADER = "&key" + API_KEY
 const maxResults = "&maxResults=40"
 
-export default function Home() {
+export default function Home({ navigation }) {
     const [search, setSearch] = useState("")
     const [bookData, setBookData] = useState([])
 
@@ -27,17 +24,23 @@ export default function Home() {
         }
     }
 
-
-    function renderItem({ item }) {
-       return <Card book={bookData} />
+    function GoBack() {
+        navigation.navigate('login')
     }
+
+    function GoNextScreen() {
+        navigation.navigate('modalTest')
+    }
+
+
 
     return (
         <View style={styles.container}>
             <View style={styles.Header}>
                 <Text style={styles.title}>IBM Books</Text>
-                <TouchableOpacity>
-                    <Entypo name="menu" size={28} color="white" />
+
+                <TouchableOpacity onPress={GoBack}>
+                    <Ionicons name="exit-outline" size={30} color="black" style={{ marginTop: 35 }} />
                 </TouchableOpacity>
             </View>
 
@@ -52,21 +55,23 @@ export default function Home() {
                         placeholderTextColor="#1d3557"
 
                     />
-                   
 
-                   <EvilIcons name="search" size={26} color="black" style={{marginRight: 10}} />
+
+                    <EvilIcons name="search" size={26} color="black" style={{ marginRight: 10 }} />
                 </View>
                 <View style={styles.categoryName}>
                     <Text style={styles.findText}>All Books</Text>
                 </View>
             </View>
 
-             <ScrollView horizontal="true" showsHorizontalScrollIndicator="false" s>
-                <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <Card book={bookData}/>
+            <ScrollView horizontal="true" showsHorizontalScrollIndicator="false" s>
+                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <Card book={bookData} />
+
+
                 </View>
-             </ScrollView>
+            </ScrollView>
         </View>
-        
+
     )
 }
